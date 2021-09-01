@@ -24,17 +24,17 @@ void  test()
 	int arr[][3] = { 1,2,3,4,5,6,7,8,9 };
 	int num;
 	int sz = sizeof(arr) / sizeof(arr[0][0]);
-	int row = sz / 3;//è¡Œ
-	int col = 3;//åˆ—
+	int row = sz / 3;//ĞĞ
+	int col = 3;//ÁĞ
 
 	scanf_s("%d", &num);
 	
 	if (FindYang(arr,num,row,col))
 	{
-		printf("%då­˜åœ¨äºæ¨æ°çŸ©é˜µ\n",num);
+		printf("%d´æÔÚÓÚÑîÊÏ¾ØÕó\n",num);
 	}
 	else
-		printf("%dä¸å­˜åœ¨äºæ¨æ°çŸ©é˜µ\n", num);
+		printf("%d²»´æÔÚÓÚÑîÊÏ¾ØÕó\n", num);
 }
 
 int main()
