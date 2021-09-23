@@ -14,6 +14,9 @@
 #define MINE_COUNT 9 //设置雷的数量
 
 
+int mark_count;//标记正确的数量
+
+
 //数组初始化
 void InitBoard(char board[][COLS], int row, int col, char ch);
 
@@ -23,11 +26,25 @@ void DisplayBoard(char board[][COLS], int row, int col);
 //设置雷
 void SetMine(char board[][COLS], int row, int col);
 
+//游戏入口，选择排查或者标记
+void PlayGame(char mine[][COLS], char show[][COLS], int row, int col);
+
 //排查雷
-void FindMine(char mine[][COLS], char show[][COLS], int row, int col);
+//返回0代表结束，返回1代表继续
+int FindMine(char mine[][COLS], char show[][COLS], int row, int col, int* pwin);
 
 //查找周围雷的数量
 int GetMineCount(char mine[][COLS], int x, int y);
 
 //如果周围没有雷，则全部展开
+//展开空白区域
+void SpreadBlank(char mine[][COLS], char show[][COLS], int x, int y, int* pwin);
+
+//标记雷点
+void MarkMine(char mine[][COLS], char show[][COLS], int row, int col);
+//取消标记雷点
+void CancelMark(char mine[][COLS], char show[][COLS], int row, int col);
+
+
+
 

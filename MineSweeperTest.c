@@ -13,9 +13,11 @@ void Menu()
 void MineSweeper()
 {
 	//为了统一符号，使用字符数组
+
 	char mine[ROWS][COLS] = { 0 };//用于存放雷的数组，0表示没有雷，1表示有雷
 	char show[ROWS][COLS] = { 0 };//用于存放打印给用户看的该点周围雷的数量的数组，
 	                             //默认为*，输入坐标后其内容为周围雷的数量
+								 // ！为标记点
 	//数组初始化
 	InitBoard(mine, ROWS, COLS, '0');
 	InitBoard(show, ROWS, COLS, '*');
@@ -23,11 +25,16 @@ void MineSweeper()
 
 	//设置雷
 	SetMine(mine, ROW, COL);
+
+	//调试用
 	//DisplayBoard(mine, ROW, COL);
+
+	system("cls");
 	//显示数组版面
 	DisplayBoard(show, ROW, COL);
 
-	FindMine(mine, show, ROW, COL);
+	//游戏入口
+	PlayGame(mine, show, ROW, COL);
 }
 
 int main()
@@ -37,11 +44,19 @@ int main()
 	do
 	{
 		Menu();
+
+		//清除缓冲区
+		char ch;
+		while ((ch = getchar()) != EOF && ch != '\n')
+		{
+			;
+		}
 		printf("请选择:>");
 		scanf("%d", &input);
 		switch (input)
 		{
 		case 1:
+
 			MineSweeper();
 			break;
 		case 0:
